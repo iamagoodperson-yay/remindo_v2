@@ -1,16 +1,33 @@
 # remindo_v2
 
-A new Flutter project.
+## About 
+This is a remake of remindo in flutter.  
+[Remindo project on github](https://github.com/iamagoodperson-yay/Remindo) (coded in swift)
 
-## Getting Started
+## Features (in progress ...)
+- Homework Tracking! 
+    - Track what homework you have and how long it will take 
+- Reminders! 
+    - Remind yourself of important events through notifications 
+- Importance! 
+    - Rank homework and reminders based on a scale from red to green 
 
-This project is a starting point for a Flutter application.
+## Future plans
+- Optimisation for webapp
+- Firebase integration to sync across devices
+- Homework planner
 
-A few resources to get you started if this is your first Flutter project:
+## Changelog
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### pre-release v0.1: Basic structure of app
+#### Added:
+- main.dart
+    - homeview, for displaying all other views
+- homework_view.dart
+    - subview of main.dart, for users to track homework in future
+- notifications_view.dart
+    - subview of main.dart, for users to add and edit reminders in future
+- settings_view.dart
+    - subview of main.dart, for users to edit settings in future
+- data_model.dart
+    - for data handling and persistent storage

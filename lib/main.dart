@@ -1,8 +1,8 @@
 // hi ted ~ jaron
 import 'package:flutter/material.dart';
-import 'package:remindo_v2/homework_view.dart';
-import 'package:remindo_v2/notifications_view.dart';
-import 'package:remindo_v2/settings_view.dart';
+import 'package:remindo_v2/views/homework_view.dart';
+import 'package:remindo_v2/views/notifications_view.dart';
+import 'package:remindo_v2/views/settings_view.dart';
 
 
 void main() {
@@ -48,12 +48,15 @@ class _MyScaffoldState extends State<MyScaffold> {
       currentIndex = index;
     });
   }
+  Text _returnAppBarName() {
+    return currentIndex == 0 ? const Text("Homework") : currentIndex == 1 ? const Text("Reminders") : currentIndex == 2 ? const Text("Settings") : const Text("Placeholder");
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sigma"),
+        title: _returnAppBarName(),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: IndexedStack(
@@ -70,7 +73,7 @@ class _MyScaffoldState extends State<MyScaffold> {
           BottomNavigationBarItem(
               icon: Icon(Icons.list_alt_rounded), label: "Homework"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_rounded), label: "Notification"),
+              icon: Icon(Icons.notifications_rounded), label: "Reminders"),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), label: "Settings"),
         ],

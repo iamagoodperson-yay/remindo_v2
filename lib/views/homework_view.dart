@@ -8,7 +8,8 @@ class HomeworkView extends StatefulWidget {
 }
 
 class _HomeworkViewState extends State<HomeworkView> {
-  void _button() {}
+  void _adObj() {}
+  void _clear() {}
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +18,18 @@ class _HomeworkViewState extends State<HomeworkView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         FilledButton(
-          onPressed: _button,
+          onPressed: _adObj,
           style: FilledButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.all(100),
           ),
-          child: const Text("Click me!"),
+          child: const Text("Add entry"),
         ),
         FilledButton(
-          onPressed: _button,
-          child: const Text("Click me!"),
+          onPressed: _clear,
+          child: const Text("Clear"),
         ),
       ],
     );
