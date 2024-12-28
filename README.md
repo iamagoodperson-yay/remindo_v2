@@ -19,7 +19,7 @@ This is a remake of remindo in flutter.
 
 ## Changelog
 
-### pre-release v0.1: Basic structure of app
+### Unreleased
 #### Added:
 - main.dart
     - homeview, for displaying all other views
