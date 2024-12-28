@@ -26,18 +26,18 @@ class HomeworkTile extends StatelessWidget {
     required this.duration, 
     required this.dueDate, 
     required this.importance
-  }); 
+  });
 
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: importance.color,
-          borderRadius: BorderRadius.circular(10)
+          borderRadius: BorderRadius.circular(20)
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:remindo_v2/utils/add_homework_dialog_box.dart';
 import 'package:remindo_v2/utils/homework_tile.dart';
 
 class HomeworkView extends StatefulWidget {
@@ -9,104 +10,55 @@ class HomeworkView extends StatefulWidget {
 }
 
 class _HomeworkViewState extends State<HomeworkView> {
+
   List homeworkList = [
     ['Math Homework', 'Complete exercises 1 to 10', DateTime.parse('2023-10-10'), const Duration(minutes: 20), Importance.high],
     ['Science Project', 'Prepare the volcano model', DateTime.parse('2023-10-15'), const Duration(minutes: 40), Importance.medium],
     ['History Essay', 'Write an essay on World War II', DateTime.parse('2023-10-20'), const Duration(hours: 1, minutes: 30), Importance.low],
   ];
 
+  void addHomework() {
+    showDialog(
+      context: context, 
+      builder: (context) {
+        return AddHomeworkDialogBox();
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.builder(
-        itemCount: homeworkList.length,
-        itemBuilder: (context, index) {
-          return HomeworkTile(
-            title: homeworkList[index][0],
-            description: homeworkList[index][1],
-            dueDate: homeworkList[index][2],
-            duration: homeworkList[index][3],
-            importance: homeworkList[index][4],
-          );
-        },
-      ),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: addHomework,
+              child: const Text('Add Homework'),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: homeworkList.length,
+              itemBuilder: (context, index) {
+                return HomeworkTile(
+                  title: homeworkList[index][0],
+                  description: homeworkList[index][1],
+                  dueDate: homeworkList[index][2],
+                  duration: homeworkList[index][3],
+                  importance: homeworkList[index][4],
+                );
+              },
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Next'),
+          ),
+        ]
+      )
     );
   }
 }
-
-// // Create a Form widget.
-// class MyCustomForm extends StatefulWidget {
-//   const MyCustomForm({super.key});
-
-//   @override
-//   MyCustomFormState createState() {
-//     return MyCustomFormState();
-//   }
-// }
-
-// // Create a corresponding State class.
-// // This class holds data related to the form.
-// class MyCustomFormState extends State<MyCustomForm> {
-//   // Create a global key that uniquely identifies the Form widget
-//   // and allows validation of the form.
-//   //
-//   // Note: This is a GlobalKey<FormState>,
-//   // not a GlobalKey<MyCustomFormState>.
-//   final _formKey = GlobalKey<FormState>();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // Build a Form widget using the _formKey created above.
-//     return Form(
-//       key: _formKey,
-//       child: Column(
-//         children: [
-//           TextFormField(
-//             // The validator receives the text that the user has entered.
-//             validator: (value) {
-//               if (value == null || value.isEmpty) {
-//                 return 'Please enter some text';
-//               }
-//               return null;
-//             },
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.symmetric(vertical: 16),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 ElevatedButton(
-//                   onPressed: () {
-//                     // Validate returns true if the form is valid, or false otherwise.
-//                     if (_formKey.currentState!.validate()) {
-//                       // If the form is valid, display a snackbar. In the real world,
-//                       // you'd often call a server or save the information in a database.
-//                       ScaffoldMessenger.of(context).showSnackBar(
-//                         const SnackBar(content: Text('Added Entry')),
-//                       );
-//                     }
-//                   },
-//                   child: const Text('Submit'),
-//                 ),
-//                 const Padding(padding: EdgeInsets.symmetric(horizontal: 8.0)),
-//                 ElevatedButton(
-//                   onPressed: () {
-
-//                     ScaffoldMessenger.of(context).showSnackBar(
-//                       const SnackBar(content: Text('Cleared')),
-//                     );
-//                   },
-//                   style: FilledButton.styleFrom(
-//                     foregroundColor: Colors.red,
-//                   ),
-//                   child: const Text("Clear"),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
