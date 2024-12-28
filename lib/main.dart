@@ -38,9 +38,9 @@ class MyScaffold extends StatefulWidget {
 
 class _MyScaffoldState extends State<MyScaffold> {
   static const List<Widget> _views = <Widget>[
-    SafeArea(child: Center(child: HomeworkView())),
-    SafeArea(child: Center(child: NotificationsView())),
-    SafeArea(child: Center(child: SettingsView())),
+    SafeArea(child: HomeworkView()),
+    SafeArea(child: NotificationsView()),
+    SafeArea(child:SettingsView()),
   ];
   int currentIndex = 0;
   void _onItemTapped(int index) {
